@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <h1>HELLLLOOOOO</h1>
+    <script>
+        var globalSecret = '1234'
+            //ha a global secretet kiíratnánk a browser console-jában, akkor 1234-et kapnánk attól függetlenül, hogy az egyik script tagen belül változik az érték. Az az értékváltoztatás csak azon a module-on belülre vonatkozik. 
+        var fight = 'hahaha'
+        //fightModule='hahahaha' de ha itt a fightModule-nak értéket adunk akkor fölűlírjuk a js file-ban lévőt
+    </script>
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script src='modulePattern.js'></script>
+    <script>
+        var script2 = (function(globalSecret){
+            $('h1').click(function(){
+                $('h1').hide();
+            })
+            globalSecret++
+            console.log(globalSecret)
+        })(globalSecret)
+    </script>
+
+</body>
+</html>
